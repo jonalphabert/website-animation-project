@@ -1,10 +1,23 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
-import {ReactNode} from "react";
+import React, {ReactNode} from "react";
 import {blur, translate} from "@/components/Header/anim";
 
-export default function NavList({link, hoveredLink, setHoveredLink}) {
-    const getChars = (word) => {
+interface State {
+    isHovered: boolean;
+    linkIndex: number;
+}
+
+export default function NavList({link, hoveredLink, setHoveredLink} : {
+    link: {
+        label: string,
+        href: string,
+        image?: string
+    }[],
+    hoveredLink: State,
+    setHoveredLink: React.Dispatch<React.SetStateAction<State>>
+}) {
+    const getChars = (word: string) => {
         let chars: ReactNode[] = [];
         word.split("").forEach( (char, i) => {
             chars.push(
@@ -27,7 +40,7 @@ export default function NavList({link, hoveredLink, setHoveredLink}) {
         <>
             <div className={"flex flex-col md:flex-row gap-x-12 gap-y-4 flex-wrap"}>
                 {link.map((item, index) => (
-                    <Link key={index} href={item.href} className={"text-4xl md:text-6xl uppercase block w-fit relative"}>
+                    <Link key={`link_${index}`} href={item.href} className={"text-4xl md:text-6xl uppercase block w-fit relative"}>
                         <motion.p
                             className={"overflow-hidden flex"}
                             onMouseOver={() => setHoveredLink({isHovered: true, linkIndex: index})}

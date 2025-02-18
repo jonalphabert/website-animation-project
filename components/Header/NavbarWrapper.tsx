@@ -1,10 +1,10 @@
 import NavList from "@/components/Header/NavList";
 import { motion } from "framer-motion";
-import {height, opacity, backdrop} from "@/components/Header/anim";
+import {height, opacity,} from "@/components/Header/anim";
 import {useState} from "react";
 
 export default function NavbarWrapper() {
-    const [hoveredLink, setHoveredLink] = useState({isHovered: false, linkIndex: null});
+    const [hoveredLink, setHoveredLink] = useState({isHovered: false, linkIndex: -1});
 
     const link = [
         {

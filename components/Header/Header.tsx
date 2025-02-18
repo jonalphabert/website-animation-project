@@ -1,12 +1,21 @@
 "use client"
+
 import styles from './style.module.scss';
-import {useState} from "react";
-import NavbarWrapper from "@/components/Header/NavbarWrapper";
+import {useEffect, useState} from "react";
+import {usePathname} from "next/navigation";
 import {AnimatePresence, motion} from "framer-motion";
+
 import {backdrop} from "@/components/Header/anim";
+import NavbarWrapper from "@/components/Header/NavbarWrapper";
 
 export default function Header() {
     const [isActive, setIsActive] = useState(false)
+    const pathname = usePathname();
+
+    useEffect(() => {
+        setIsActive(false);
+    }, [pathname]);
+
     return (
         <>
             <div className={"fixed w-screen"}>
