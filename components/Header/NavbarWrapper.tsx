@@ -9,19 +9,19 @@ export default function NavbarWrapper() {
     const link = [
         {
             label: 'Home',
-            href: '/',
+            href: '#',
         },{
             label: 'About',
-            href: '/about',
+            href: '#',
         },{
             label: 'Portfolio',
-            href: '/portfolio',
+            href: '#',
         },{
             label: 'Testimonials',
-            href: '/testimonials',
+            href: '#',
         },{
             label: 'Contact',
-            href: '/contact',
+            href: '#',
         }
     ]
     return (
